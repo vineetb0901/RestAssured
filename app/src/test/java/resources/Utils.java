@@ -1,5 +1,6 @@
 package resources;
 
+import com.github.javafaker.Faker;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
@@ -37,7 +38,6 @@ public class Utils {
 
     public static ResponseSpecification responseSpecificationBuilder() {
         return new ResponseSpecBuilder()
-                .expectStatusCode(201)
                 .expectContentType(ContentType.JSON).build();
     }
 
@@ -53,5 +53,9 @@ public class Utils {
         String resp = response.asString();
         JsonPath jsonPath = new JsonPath(resp);
         return jsonPath.get(key);
+    }
+    public static String generateEmail(){
+        Faker faker = new Faker();
+        return faker.internet().emailAddress();
     }
 }

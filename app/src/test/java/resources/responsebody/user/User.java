@@ -2,7 +2,6 @@ package resources.responsebody.user;
 
 import lombok.Getter;
 
-@Getter
 public class User {
     private String _id;
     private String firstName;
