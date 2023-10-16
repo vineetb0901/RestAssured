@@ -1,0 +1,42 @@
+Request method:	POST
+Request URI:	https://thinking-tester-contact-list.herokuapp.com/users
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "firstName": "Baganna",
+    "lastName": "K",
+    "email": "baganna1278@test.com",
+    "password": "bag#321"
+}
+HTTP/1.1 201 Created
+Server: Cowboy
+Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1697450463&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=Qh8sx%2BVbazbP5HCsGMK0Mfg4PXV7TIKHJI9xmZKGV2k%3D"}]}
+Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1697450463&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=Qh8sx%2BVbazbP5HCsGMK0Mfg4PXV7TIKHJI9xmZKGV2k%3D
+Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+Connection: keep-alive
+X-Powered-By: Express
+Set-Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJkMDlkZmExMzA0ZDAwMTM0MjE2NDgiLCJpYXQiOjE2OTc0NTA0NjN9.zXvYySSRx1AgFjHzkAXxWFPokHksTtrMNG6s1QWKUzk; Max-Age=684; Path=/; Expires=Mon, 16 Oct 2023 10:12:27 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 279
+Etag: W/"117-XWXDXG/UCfw3jR6eUR6Cgo4wtg8"
+Date: Mon, 16 Oct 2023 10:01:03 GMT
+Via: 1.1 vegur
+
+{
+    "user": {
+        "_id": "652d09dfa1304d0013421648",
+        "firstName": "Baganna",
+        "lastName": "K",
+        "email": "baganna1278@test.com",
+        "__v": 1
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJkMDlkZmExMzA0ZDAwMTM0MjE2NDgiLCJpYXQiOjE2OTc0NTA0NjN9.zXvYySSRx1AgFjHzkAXxWFPokHksTtrMNG6s1QWKUzk"
+}
