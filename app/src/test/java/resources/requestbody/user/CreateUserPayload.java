@@ -1,14 +1,10 @@
 package resources.requestbody.user;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-
 public class CreateUserPayload {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
 
     public String getFirstName() {
         return firstName;
@@ -42,5 +38,4 @@ public class CreateUserPayload {
         this.password = password;
     }
 
-    private String password;
 }

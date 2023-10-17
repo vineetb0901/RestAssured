@@ -13,29 +13,29 @@ Body:
 {
     "firstName": "Baganna",
     "lastName": "K",
-    "email": "astrid.turcotte@yahoo.com",
+    "email": "darrin.hand@yahoo.com",
     "password": "bag#321"
 }
 HTTP/1.1 201 Created
 Server: Cowboy
 Connection: keep-alive
 X-Powered-By: Express
-Set-Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJkMTU5Y2ExMzA0ZDAwMTM0MjE2YjUiLCJpYXQiOjE2OTc0NTM0Njh9.bVs7YE9VMQ74Ktni1uRb7smHVLWODiRCmYE4KY8BouQ; Max-Age=684; Path=/; Expires=Mon, 16 Oct 2023 11:02:32 GMT
+Set-Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJlMWUzMjRjYzQxNzAwMTM4ZTVmYWMiLCJpYXQiOjE2OTc1MjEyMDJ9.57Of4emCD7NZlpKEKX4QPNcIfrq73lKCjYaq7PHkXzA; Max-Age=684; Path=/; Expires=Tue, 17 Oct 2023 05:51:26 GMT
 Content-Type: application/json; charset=utf-8
-Content-Length: 284
-Etag: W/"11c-mROqTpl+fRB/Us1j5QbV+ovHC1w"
-Date: Mon, 16 Oct 2023 10:51:08 GMT
+Content-Length: 280
+Etag: W/"118-R8MGmScs56tZDt5IpraU4kG6EzM"
+Date: Tue, 17 Oct 2023 05:40:02 GMT
 Via: 1.1 vegur
 
 {
     "user": {
-        "_id": "652d159ca1304d00134216b5",
+        "_id": "652e1e324cc41700138e5fac",
         "firstName": "Baganna",
         "lastName": "K",
-        "email": "astrid.turcotte@yahoo.com",
+        "email": "darrin.hand@yahoo.com",
         "__v": 1
     },
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJkMTU5Y2ExMzA0ZDAwMTM0MjE2YjUiLCJpYXQiOjE2OTc0NTM0Njh9.bVs7YE9VMQ74Ktni1uRb7smHVLWODiRCmYE4KY8BouQ"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJlMWUzMjRjYzQxNzAwMTM4ZTVmYWMiLCJpYXQiOjE2OTc1MjEyMDJ9.57Of4emCD7NZlpKEKX4QPNcIfrq73lKCjYaq7PHkXzA"
 }
 Request method:	GET
 Request URI:	https://thinking-tester-contact-list.herokuapp.com/users/me
@@ -44,7 +44,7 @@ Request params:	<none>
 Query params:	<none>
 Form params:	<none>
 Path params:	<none>
-Headers:		Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJkMTU5Y2ExMzA0ZDAwMTM0MjE2YjUiLCJpYXQiOjE2OTc0NTM0Njh9.bVs7YE9VMQ74Ktni1uRb7smHVLWODiRCmYE4KY8BouQ
+Headers:		Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJlMWUzMjRjYzQxNzAwMTM4ZTVmYWMiLCJpYXQiOjE2OTc1MjEyMDJ9.57Of4emCD7NZlpKEKX4QPNcIfrq73lKCjYaq7PHkXzA
 				Accept=*/*
 				Content-Type=application/json
 Cookies:		<none>
@@ -55,15 +55,54 @@ Server: Cowboy
 Connection: keep-alive
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
-Content-Length: 115
-Etag: W/"73-py7qaOCTeP73zQGly26dQ5yH1Qw"
-Date: Mon, 16 Oct 2023 10:51:10 GMT
+Content-Length: 111
+Etag: W/"6f-FZvj7Rr71zhJlajNUb+fDtG5tdg"
+Date: Tue, 17 Oct 2023 05:40:03 GMT
 Via: 1.1 vegur
 
 {
-    "_id": "652d159ca1304d00134216b5",
+    "_id": "652e1e324cc41700138e5fac",
     "firstName": "Baganna",
     "lastName": "K",
-    "email": "astrid.turcotte@yahoo.com",
+    "email": "darrin.hand@yahoo.com",
+    "__v": 1
+}
+Request method:	PATCH
+Request URI:	https://thinking-tester-contact-list.herokuapp.com/users/me
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJlMWUzMjRjYzQxNzAwMTM4ZTVmYWMiLCJpYXQiOjE2OTc1MjEyMDJ9.57Of4emCD7NZlpKEKX4QPNcIfrq73lKCjYaq7PHkXzA
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "firstName": "UpdatedFName",
+    "lastName": "updatedLName",
+    "email": "darrin.hand@yahoo.com",
+    "password": "updated#432"
+}
+HTTP/1.1 200 OK
+Server: Cowboy
+Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1697521205&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=SKP77DlmHsDkEH9WnrImX%2FptnBs8yMNaQtd5Sw0PLss%3D"}]}
+Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1697521205&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=SKP77DlmHsDkEH9WnrImX%2FptnBs8yMNaQtd5Sw0PLss%3D
+Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+Connection: keep-alive
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 127
+Etag: W/"7f-tG6atoLluGOvn2WbyhvFB4ng+i8"
+Date: Tue, 17 Oct 2023 05:40:05 GMT
+Via: 1.1 vegur
+
+{
+    "_id": "652e1e324cc41700138e5fac",
+    "firstName": "UpdatedFName",
+    "lastName": "updatedLName",
+    "email": "darrin.hand@yahoo.com",
     "__v": 1
 }
