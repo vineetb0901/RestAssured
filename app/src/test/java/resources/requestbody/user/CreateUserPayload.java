@@ -1,5 +1,7 @@
 package resources.requestbody.user;
 
+
+
 public class CreateUserPayload {
     private String firstName;
     private String lastName;

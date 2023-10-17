@@ -9,15 +9,20 @@ public enum APIResources {
     UpdateUserAPI("/users/me"),
     LogOutUserAPI("/users/logout"),
     LogInUserAPI("/users/login"),
-    DeleteUserAPI("/users/me");
+    DeleteUserAPI("/users/me"),
+    AddContactAPI("/contacts"),
+    GetContactList("/contacts"),
+    GetContact("/contacts/"),
+    UpdateContact("/contacts/"),
+    DeleteContact("/contacts/");
 
-    public String getResource() {
-        return resource;
-    }
 
     private final String resource;
 
     APIResources(String resource) {
         this.resource = resource;
+    }
+    public String getResource() {
+        return resource;
     }
 }
