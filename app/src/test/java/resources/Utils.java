@@ -55,7 +55,10 @@ public class Utils {
         return jsonPath.get(key);
     }
     public static String generateEmail(){
-        Faker faker = new Faker();
-        return faker.internet().emailAddress();
+
+        return new Faker().internet().emailAddress();
+    }
+    public static String generatePassword(){
+        return  new Faker().internet().password();
     }
 }
