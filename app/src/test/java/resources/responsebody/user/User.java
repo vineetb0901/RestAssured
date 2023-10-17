@@ -1,13 +1,12 @@
 package resources.responsebody.user;
 
-import lombok.Getter;
 
 public class User {
     private String _id;
     private String firstName;
     private String lastName;
     private String email;
-    private String __v;
+    private int __v;
 
     public String get_id() {
         return _id;
@@ -25,7 +24,7 @@ public class User {
         return email;
     }
 
-    public String get__v() {
+    public int get__v() {
         return __v;
     }
 }

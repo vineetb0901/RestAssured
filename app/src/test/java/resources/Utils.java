@@ -13,6 +13,7 @@ import io.restassured.specification.ResponseSpecification;
 
 import java.io.*;
 import java.util.Properties;
+import java.util.Random;
 
 public class Utils {
     static PrintStream log;
@@ -60,5 +61,16 @@ public class Utils {
     }
     public static String generatePassword(){
         return  new Faker().internet().password();
+    }
+    public static String generateFirstName(){
+        return new Faker().name().firstName();
+    }
+
+    public static  String generateLastName(){
+
+        return new Faker().name().lastName();
+    }
+    public static String generatePhoneNumber(){
+        return  String.valueOf(new Faker().number().digits(10));
     }
 }
