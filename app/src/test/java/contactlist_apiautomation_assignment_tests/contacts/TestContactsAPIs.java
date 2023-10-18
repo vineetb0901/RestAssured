@@ -10,29 +10,32 @@ import resources.Utils;
 import resources.requestbody.contacts.AddContactPayload;
 import resources.requestbody.contacts.UpdateEmailAndPhoneNumberPayload;
 import resources.responsebody.contacts.AddContactResponse;
-import resources.testdata.contacts.TestDataBuilder_contact;
+import resources.testdata.contacts.TestDataBuilderForContact;
 
 import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
 
 public class TestContactsAPIs {
-    private TestDataBuilder_contact testDataBuilderContact;
+    private TestDataBuilderForContact testDataBuilderContact;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
     private String token;
-    private String _id;
+    private String id;
 
     @BeforeClass
     public void setUp() throws IOException {
-        testDataBuilderContact = new TestDataBuilder_contact();
+        testDataBuilderContact = new TestDataBuilderForContact();
         firstName = Utils.generateFirstName();
         lastName = Utils.generateLastName();
         email = Utils.generateEmail();
         phoneNumber = Utils.generatePhoneNumber();
-        new TestUserAPIs().shouldTestCreateUser();
+
+        //calling shouldTestCreateUser for getting token
+        new TestUserAPIs().setUp().shouldTestCreateUser();
+
         token = TestUserAPIs.token;
     }
 
@@ -48,7 +51,7 @@ public class TestContactsAPIs {
                 .when().post(resource)
                 .then().spec(Utils.responseSpecificationBuilder()).assertThat().statusCode(201)
                 .extract().response().as(AddContactResponse.class);
-        _id = addContactResponse.get_id();
+        id = addContactResponse.get_id();
         //Assert
         Assert.assertEquals(addContactResponse.getFirstName(), firstName);
     }
@@ -64,9 +67,9 @@ public class TestContactsAPIs {
                 .then().spec(Utils.responseSpecificationBuilder())
                 .assertThat().statusCode(200)
                 .extract().response();
-        String firstNameRes = Utils.getJsonPath(response, "[0].firstName");
+        String firstNameInResponse = Utils.getJsonPath(response, "[0].firstName");
         //Assert
-        Assert.assertEquals(firstNameRes, firstName);
+        Assert.assertEquals(firstNameInResponse, firstName);
     }
 
     @Test(priority = 3)
@@ -76,12 +79,12 @@ public class TestContactsAPIs {
         //Act
         AddContactResponse addContactResponse = given().spec(Utils.requestSpecificationBuilder())
                 .header("Authorization", "Bearer " + token)
-                .when().get(resource+_id)
+                .when().get(resource+ id)
                 .then().spec(Utils.responseSpecificationBuilder())
                 .assertThat().statusCode(200)
                 .extract().response().as(AddContactResponse.class);
         //Assert
-        Assert.assertEquals(addContactResponse.get_id(),_id);
+        Assert.assertEquals(addContactResponse.get_id(), id);
     }
     @Test(priority = 4)
     public void shouldTestUpdateContact() throws IOException {
@@ -96,7 +99,7 @@ public class TestContactsAPIs {
         AddContactResponse updatedContactResponse = given().spec(Utils.requestSpecificationBuilder())
                 .header("Authorization", "Bearer " + token)
                 .body(updatedContactPayload)
-                .when().put(resource+_id)
+                .when().put(resource+ id)
                 .then().spec(Utils.responseSpecificationBuilder())
                 .extract().response().as(AddContactResponse.class);
         String updatedContactPayloadFirstName = updatedContactPayload.getFirstName();
@@ -115,13 +118,13 @@ public class TestContactsAPIs {
         AddContactResponse addContactResponse = given().spec(Utils.requestSpecificationBuilder())
                 .header("Authorization", "Bearer " + token)
                 .body(payloadForUpdateEmailAndPhone)
-                .when().patch(resource + _id)
+                .when().patch(resource + id)
                 .then().spec(Utils.responseSpecificationBuilder())
                 .extract().response().as(AddContactResponse.class);
-        String email1 = addContactResponse.getEmail();
-        String email2 = payloadForUpdateEmailAndPhone.getEmail();
+        String requestedEmail = addContactResponse.getEmail();
+        String  emailInResponse= payloadForUpdateEmailAndPhone.getEmail();
         //Assert
-        Assert.assertEquals(email1,email2);
+        Assert.assertEquals(requestedEmail,emailInResponse);
     }
     @Test(priority = 6)
     public void shouldTestDeleteContact() throws IOException {
@@ -130,7 +133,7 @@ public class TestContactsAPIs {
         //Act
         String deleteContactResponse = given().spec(Utils.requestSpecificationBuilder())
                 .header("Authorization", "Bearer " + token)
-                .when().delete(resource + _id)
+                .when().delete(resource + id)
                 .then().extract().response().asString();
         //Assert
         Assert.assertEquals(deleteContactResponse,"Contact deleted");

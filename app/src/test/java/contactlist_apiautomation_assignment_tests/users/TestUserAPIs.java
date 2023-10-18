@@ -2,12 +2,13 @@ package contactlist_apiautomation_assignment_tests.users;
 
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import resources.APIResources;
 import resources.Utils;
 import resources.responsebody.user.CreateUserResponse;
 import resources.responsebody.user.User;
-import resources.testdata.user.TestDataBuilder_user;
+import resources.testdata.user.TestDataBuilderForUser;
 
 import java.io.IOException;
 
@@ -16,34 +17,46 @@ import static io.restassured.RestAssured.given;
 public class TestUserAPIs {
     public static String token;
     String loginToken;
-    TestDataBuilder_user testDataBuilderUser = new TestDataBuilder_user();
-    String email = Utils.generateEmail();
-    String password = Utils.generatePassword();
+    TestDataBuilderForUser testDataBuilderUser;
+    String email;
+    String password;
+    String firstName;
+    String lastName;
+    @BeforeClass
+    public TestUserAPIs setUp(){
+        testDataBuilderUser = new TestDataBuilderForUser();
+        firstName = Utils.generateFirstName();
+        lastName = Utils.generateLastName();
+        email = Utils.generateEmail();
+        password = Utils.generatePassword();
+        return this;
+    }
+
 
     @Test(priority = 1)
     public void shouldTestCreateUser() throws IOException {
         //Arrange
-
+        String resource = APIResources.CreateUserAPI.getResource();
         //Act
         CreateUserResponse createUserResponse = given().spec(Utils.requestSpecificationBuilder())
-                .body(testDataBuilderUser.createUserPayload("Baganna", "K", email, password))
-                .when().post(APIResources.CreateUserAPI.getResource())
+                .body(testDataBuilderUser.createUserPayload(firstName, lastName, email, password))
+                .when().post(resource)
                 .then().spec(Utils.responseSpecificationBuilder())
                 .extract().response().as(CreateUserResponse.class);
         token = createUserResponse.getToken();
 
         //Assert
-        Assert.assertEquals(createUserResponse.getUser().getFirstName(), "Baganna");
+        Assert.assertEquals(createUserResponse.getUser().getFirstName(), firstName);
     }
 
     @Test(priority = 2)
     public void shouldTestGetUserProfile() throws IOException {
         //Arrange
-
+        String resource = APIResources.GetUserProfileAPI.getResource();
         //Act
         User user = given().spec(Utils.requestSpecificationBuilder())
                 .header("Authorization", "Bearer " + token)
-                .when().get(APIResources.GetUserProfileAPI.getResource())
+                .when().get(resource)
                 .then().spec(Utils.responseSpecificationBuilder())
                 .assertThat().statusCode(200)
                 .extract().response().as(User.class);
@@ -54,26 +67,28 @@ public class TestUserAPIs {
     @Test(priority = 3)
     public void shouldTestUpdateUser() throws IOException {
         //Arrange
-
+        String resource = APIResources.UpdateUserAPI.getResource();
+        String updatedFirstName = Utils.generateFirstName();
+        String updatedLastName = Utils.generateLastName();
         //Act
-        User user = given().spec(Utils.requestSpecificationBuilder())
-                .body(testDataBuilderUser.createUserPayload("UpdatedFName", "updatedLName", email, password))
+        User updatedUser = given().spec(Utils.requestSpecificationBuilder())
+                .body(testDataBuilderUser.createUserPayload(updatedFirstName, updatedLastName, email, password))
                 .header("Authorization", "Bearer " + token)
-                .when().patch(APIResources.UpdateUserAPI.getResource())
+                .when().patch(resource)
                 .then().spec(Utils.responseSpecificationBuilder()).assertThat().statusCode(200)
                 .extract().response().as(User.class);
         //Assert
-        Assert.assertEquals(user.getFirstName(), "UpdatedFName");
+        Assert.assertEquals(updatedUser.getFirstName(), updatedFirstName);
     }
 
     @Test(priority = 4)
     public void shouldTestLogInUser() throws IOException {
         //Arrange
-
+        String resource = APIResources.LogInUserAPI.getResource();
         //Act
         CreateUserResponse createUserResponse = given().spec(Utils.requestSpecificationBuilder())
                 .body(testDataBuilderUser.createLoginPayload(email, password))
-                .when().post(APIResources.LogInUserAPI.getResource())
+                .when().post(resource)
                 .then().spec(Utils.responseSpecificationBuilder())
                 .assertThat().statusCode(200)
                 .extract().response().as(CreateUserResponse.class);
@@ -84,11 +99,11 @@ public class TestUserAPIs {
     @Test(priority = 5)
     public void shouldTestLogOutUser() throws IOException {
         //Arrange
-
+        String resource = APIResources.LogOutUserAPI.getResource();
         //Act
         Response response = given().spec(Utils.requestSpecificationBuilder())
                 .header("Authorization", "Bearer " + loginToken)
-                .when().post(APIResources.LogOutUserAPI.getResource())
+                .when().post(resource)
                 .then().extract().response();
         //Assert
         Assert.assertEquals(response.statusCode(),200);
@@ -97,12 +112,12 @@ public class TestUserAPIs {
     public void shouldTestDeleteUser() throws IOException {
         //Arrange
         this.shouldTestLogInUser();
-
+        String resource = APIResources.DeleteUserAPI.getResource();
         //Act
         Response response = given().spec(Utils.requestSpecificationBuilder())
                 .header("Authorization", "Bearer " + loginToken)
                 .header("Cookie","token=" + loginToken)
-                .when().delete(APIResources.DeleteUserAPI.getResource())
+                .when().delete(resource)
                 .then().extract().response();
         //Assert
         Assert.assertEquals(response.getStatusCode(),200);

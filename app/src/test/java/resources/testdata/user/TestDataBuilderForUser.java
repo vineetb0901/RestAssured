@@ -3,7 +3,7 @@ package resources.testdata.user;
 import resources.requestbody.user.CreateUserPayload;
 import resources.requestbody.user.LoginUserPayload;
 
-public class TestDataBuilder_user {
+public class TestDataBuilderForUser {
     public CreateUserPayload createUserPayload(String firstName, String lastName, String email, String password) {
         CreateUserPayload createUserPayload = new CreateUserPayload();
         createUserPayload.setFirstName(firstName);

@@ -3,7 +3,7 @@ package resources.testdata.contacts;
 import resources.requestbody.contacts.AddContactPayload;
 import resources.requestbody.contacts.UpdateEmailAndPhoneNumberPayload;
 
-public class TestDataBuilder_contact {
+public class TestDataBuilderForContact {
        public AddContactPayload addContactPayload = new AddContactPayload();
     public AddContactPayload createAddContactPayload(String firstName, String lastName, String email, String phoneNumber) {
         addContactPayload.setFirstName(firstName);
