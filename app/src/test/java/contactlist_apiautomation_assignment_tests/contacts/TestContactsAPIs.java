@@ -1,6 +1,7 @@
 package contactlist_apiautomation_assignment_tests.contacts;
 
 import contactlist_apiautomation_assignment_tests.users.TestUserAPIs;
+import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -9,9 +10,7 @@ import resources.Utils;
 import resources.requestbody.contacts.AddContactPayload;
 import resources.responsebody.contacts.AddContactResponse;
 import resources.testdata.contacts.TestDataBuilder_contact;
-
 import java.io.IOException;
-
 import static io.restassured.RestAssured.given;
 
 public class TestContactsAPIs {
@@ -48,5 +47,20 @@ public class TestContactsAPIs {
                 .extract().response().as(AddContactResponse.class);
         //Assert
         Assert.assertEquals(addContactResponse.getFirstName(),firstName);
+    }
+    @Test
+    public void shouldTestGetContactList() throws IOException {
+        //Arrange
+        String resources = APIResources.GetContactList.getResource();
+        //Act
+        Response response = given().spec(Utils.requestSpecificationBuilder())
+                .header("Authorization", "Bearer " + token)
+                .when().get(resources)
+                .then().spec(Utils.responseSpecificationBuilder())
+                .assertThat().statusCode(200)
+                .extract().response();
+        String firstNameRes = Utils.getJsonPath(response, "[0].firstName");
+        //Assert
+        Assert.assertEquals(firstNameRes,firstName);
     }
 }

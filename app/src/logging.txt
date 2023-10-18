@@ -13,32 +13,32 @@ Body:
 {
     "firstName": "Baganna",
     "lastName": "K",
-    "email": "eugenio.leannon@hotmail.com",
-    "password": "9of4zsi9w6n6fla"
+    "email": "jarrett.kris@gmail.com",
+    "password": "z88cv19vot"
 }
 HTTP/1.1 201 Created
 Server: Cowboy
-Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1697558156&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=pfvQnh9ikkbXWNRsadgexftPNhlXb9pjKHI0DpU6KRw%3D"}]}
-Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1697558156&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=pfvQnh9ikkbXWNRsadgexftPNhlXb9pjKHI0DpU6KRw%3D
+Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1697608414&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=Waglj7j5n16UE5h9qYcmbLcrsk%2F8vLn6zUJ8dRprtr4%3D"}]}
+Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1697608414&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=Waglj7j5n16UE5h9qYcmbLcrsk%2F8vLn6zUJ8dRprtr4%3D
 Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
 Connection: keep-alive
 X-Powered-By: Express
-Set-Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJlYWU4YzRjYzQxNzAwMTM4ZTY1N2YiLCJpYXQiOjE2OTc1NTgxNTZ9._wRABzaPlpu0oRqiQHOuXNCVpisBQVRbOy2bi7Dn8bM; Max-Age=684; Path=/; Expires=Tue, 17 Oct 2023 16:07:20 GMT
+Set-Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJmNzJkZTdlZTAxNzAwMTMzN2FlY2UiLCJpYXQiOjE2OTc2MDg0MTR9.kPWsMYhFu9tSM5gCy-SakJIr-SXSrj7zcVhEJeD_g0Y; Max-Age=684; Path=/; Expires=Wed, 18 Oct 2023 06:04:58 GMT
 Content-Type: application/json; charset=utf-8
-Content-Length: 286
-Etag: W/"11e-jptLbZJSYRxChc66iYuG9PyT7xs"
-Date: Tue, 17 Oct 2023 15:55:56 GMT
+Content-Length: 281
+Etag: W/"119-4ir9BMLv7B274VTJxjic1ulatYE"
+Date: Wed, 18 Oct 2023 05:53:34 GMT
 Via: 1.1 vegur
 
 {
     "user": {
-        "_id": "652eae8c4cc41700138e657f",
+        "_id": "652f72de7ee017001337aece",
         "firstName": "Baganna",
         "lastName": "K",
-        "email": "eugenio.leannon@hotmail.com",
+        "email": "jarrett.kris@gmail.com",
         "__v": 1
     },
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJlYWU4YzRjYzQxNzAwMTM4ZTY1N2YiLCJpYXQiOjE2OTc1NTgxNTZ9._wRABzaPlpu0oRqiQHOuXNCVpisBQVRbOy2bi7Dn8bM"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJmNzJkZTdlZTAxNzAwMTMzN2FlY2UiLCJpYXQiOjE2OTc2MDg0MTR9.kPWsMYhFu9tSM5gCy-SakJIr-SXSrj7zcVhEJeD_g0Y"
 }
 Request method:	POST
 Request URI:	https://thinking-tester-contact-list.herokuapp.com/contacts
@@ -47,18 +47,18 @@ Request params:	<none>
 Query params:	<none>
 Form params:	<none>
 Path params:	<none>
-Headers:		Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJlYWU4YzRjYzQxNzAwMTM4ZTY1N2YiLCJpYXQiOjE2OTc1NTgxNTZ9._wRABzaPlpu0oRqiQHOuXNCVpisBQVRbOy2bi7Dn8bM
+Headers:		Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJmNzJkZTdlZTAxNzAwMTMzN2FlY2UiLCJpYXQiOjE2OTc2MDg0MTR9.kPWsMYhFu9tSM5gCy-SakJIr-SXSrj7zcVhEJeD_g0Y
 				Accept=*/*
 				Content-Type=application/json
 Cookies:		<none>
 Multiparts:		<none>
 Body:
 {
-    "firstName": "Angel",
-    "lastName": "Rohan",
+    "firstName": "Maybell",
+    "lastName": "Erdman",
     "birthdate": "1970-01-01",
-    "email": "shad.prosacco@hotmail.com",
-    "phoneNumber": "7990812806",
+    "email": "gisela.ullrich@gmail.com",
+    "phoneNumber": "5694636824",
     "street1": "Apartment A",
     "street2": "2 Main St.",
     "city": "Bengaluru",
@@ -68,26 +68,72 @@ Body:
 }
 HTTP/1.1 201 Created
 Server: Cowboy
+Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1697608416&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=0WHoWtSIGJaFYaZoFPskworjqA8piXcc4w6wHdNsvxU%3D"}]}
+Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1697608416&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=0WHoWtSIGJaFYaZoFPskworjqA8piXcc4w6wHdNsvxU%3D
+Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
 Connection: keep-alive
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
-Content-Length: 311
-Etag: W/"137-JOrhFP/BuYjH2gARHIo0lkaYSb8"
-Date: Tue, 17 Oct 2023 15:55:57 GMT
+Content-Length: 313
+Etag: W/"139-uwCrMaNhTEVj4tJz0UshBWTdA8o"
+Date: Wed, 18 Oct 2023 05:53:36 GMT
 Via: 1.1 vegur
 
 {
-    "_id": "652eae8dfde4e500139b9ca2",
-    "firstName": "Angel",
-    "lastName": "Rohan",
+    "_id": "652f72e07ee017001337aed0",
+    "firstName": "Maybell",
+    "lastName": "Erdman",
     "birthdate": "1970-01-01",
-    "email": "shad.prosacco@hotmail.com",
+    "email": "gisela.ullrich@gmail.com",
     "street1": "Apartment A",
     "street2": "2 Main St.",
     "city": "Bengaluru",
     "stateProvince": "Karnataka",
     "postalCode": "560064",
     "country": "India",
-    "owner": "652eae8c4cc41700138e657f",
+    "owner": "652f72de7ee017001337aece",
     "__v": 0
 }
+Request method:	GET
+Request URI:	https://thinking-tester-contact-list.herokuapp.com/contacts
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTJmNzJkZTdlZTAxNzAwMTMzN2FlY2UiLCJpYXQiOjE2OTc2MDg0MTR9.kPWsMYhFu9tSM5gCy-SakJIr-SXSrj7zcVhEJeD_g0Y
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Server: Cowboy
+Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1697608417&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=CWrLsc0ZU5cTFn9UXUzLPxiI0rcRsp2hMoFCvYzIzUo%3D"}]}
+Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1697608417&sid=af571f24-03ee-46d1-9f90-ab9030c2c74c&s=CWrLsc0ZU5cTFn9UXUzLPxiI0rcRsp2hMoFCvYzIzUo%3D
+Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
+Connection: keep-alive
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 315
+Etag: W/"13b-yXfZ6+TrC717l78uGG8OcAqw/TE"
+Date: Wed, 18 Oct 2023 05:53:37 GMT
+Via: 1.1 vegur
+
+[
+    {
+        "_id": "652f72e07ee017001337aed0",
+        "firstName": "Maybell",
+        "lastName": "Erdman",
+        "birthdate": "1970-01-01",
+        "email": "gisela.ullrich@gmail.com",
+        "street1": "Apartment A",
+        "street2": "2 Main St.",
+        "city": "Bengaluru",
+        "stateProvince": "Karnataka",
+        "postalCode": "560064",
+        "country": "India",
+        "owner": "652f72de7ee017001337aece",
+        "__v": 0
+    }
+]

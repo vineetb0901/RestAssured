@@ -7,7 +7,7 @@ import resources.APIResources;
 import resources.Utils;
 import resources.responsebody.user.CreateUserResponse;
 import resources.responsebody.user.User;
-import resources.testdata.user.TestDataBuilder;
+import resources.testdata.user.TestDataBuilder_user;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 public class TestUserAPIs {
     public static String token;
     String loginToken;
-    TestDataBuilder testDataBuilder = new TestDataBuilder();
+    TestDataBuilder_user testDataBuilderUser = new TestDataBuilder_user();
     String email = Utils.generateEmail();
     String password = Utils.generatePassword();
 
@@ -26,7 +26,7 @@ public class TestUserAPIs {
 
         //Act
         CreateUserResponse createUserResponse = given().spec(Utils.requestSpecificationBuilder())
-                .body(testDataBuilder.createUserPayload("Baganna", "K", email, password))
+                .body(testDataBuilderUser.createUserPayload("Baganna", "K", email, password))
                 .when().post(APIResources.CreateUserAPI.getResource())
                 .then().spec(Utils.responseSpecificationBuilder())
                 .extract().response().as(CreateUserResponse.class);
@@ -57,7 +57,7 @@ public class TestUserAPIs {
 
         //Act
         User user = given().spec(Utils.requestSpecificationBuilder())
-                .body(testDataBuilder.createUserPayload("UpdatedFName", "updatedLName", email, password))
+                .body(testDataBuilderUser.createUserPayload("UpdatedFName", "updatedLName", email, password))
                 .header("Authorization", "Bearer " + token)
                 .when().patch(APIResources.UpdateUserAPI.getResource())
                 .then().spec(Utils.responseSpecificationBuilder()).assertThat().statusCode(200)
@@ -72,7 +72,7 @@ public class TestUserAPIs {
 
         //Act
         CreateUserResponse createUserResponse = given().spec(Utils.requestSpecificationBuilder())
-                .body(testDataBuilder.createLoginPayload(email, password))
+                .body(testDataBuilderUser.createLoginPayload(email, password))
                 .when().post(APIResources.LogInUserAPI.getResource())
                 .then().spec(Utils.responseSpecificationBuilder())
                 .assertThat().statusCode(200)
