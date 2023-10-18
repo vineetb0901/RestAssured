@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import resources.APIResources;
 import resources.Utils;
 import resources.requestbody.contacts.AddContactPayload;
+import resources.requestbody.contacts.UpdateEmailAndPhoneNumberPayload;
 import resources.responsebody.contacts.AddContactResponse;
 import resources.testdata.contacts.TestDataBuilder_contact;
 
@@ -81,5 +82,45 @@ public class TestContactsAPIs {
                 .extract().response().as(AddContactResponse.class);
         //Assert
         Assert.assertEquals(addContactResponse.get_id(),_id);
+    }
+    @Test(priority = 4)
+    public void shouldTestUpdateContact() throws IOException {
+        //Arrange
+        String resource = APIResources.UpdateContact.getResource();
+        String updatedFirstName = Utils.generateFirstName();
+        String updatedLastName = Utils.generateLastName();
+        String updatedEmail = Utils.generateEmail();
+        String updatedPhoneNumber = Utils.generatePhoneNumber();
+        AddContactPayload updatedContactPayload = testDataBuilderContact.createAddContactPayload(updatedFirstName, updatedLastName, updatedEmail, updatedPhoneNumber);
+        //Act
+        AddContactResponse updatedContactResponse = given().spec(Utils.requestSpecificationBuilder())
+                .header("Authorization", "Bearer " + token)
+                .body(updatedContactPayload)
+                .when().put(resource+_id)
+                .then().spec(Utils.responseSpecificationBuilder())
+                .extract().response().as(AddContactResponse.class);
+        String updatedContactPayloadFirstName = updatedContactPayload.getFirstName();
+        String updatedContactResponseFirstName = updatedContactResponse.getFirstName();
+        //Assert
+        Assert.assertEquals(updatedContactPayloadFirstName,updatedContactResponseFirstName);
+    }
+    @Test(priority = 5)
+    public void shouldTestUpdatePhoneNumberAndEmail() throws IOException {
+        //Arrange
+        String resource = APIResources.UpdateContact.getResource();
+        String updatedEmail = Utils.generateEmail();
+        String updatedPhoneNumber = Utils.generatePhoneNumber();
+        UpdateEmailAndPhoneNumberPayload payloadForUpdateEmailAndPhone = testDataBuilderContact.createPayloadForUpdateEmailAnd(updatedEmail, updatedPhoneNumber);
+        //Act
+        AddContactResponse addContactResponse = given().spec(Utils.requestSpecificationBuilder())
+                .header("Authorization", "Bearer " + token)
+                .body(payloadForUpdateEmailAndPhone)
+                .when().patch(resource + _id)
+                .then().spec(Utils.responseSpecificationBuilder())
+                .extract().response().as(AddContactResponse.class);
+        String email1 = addContactResponse.getEmail();
+        String email2 = payloadForUpdateEmailAndPhone.getEmail();
+        //Assert
+        Assert.assertEquals(email1,email2);
     }
 }

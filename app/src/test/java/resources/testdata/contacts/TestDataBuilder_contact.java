@@ -1,6 +1,7 @@
 package resources.testdata.contacts;
 
 import resources.requestbody.contacts.AddContactPayload;
+import resources.requestbody.contacts.UpdateEmailAndPhoneNumberPayload;
 
 public class TestDataBuilder_contact {
        public AddContactPayload addContactPayload = new AddContactPayload();
@@ -17,5 +18,12 @@ public class TestDataBuilder_contact {
         addContactPayload.setPostalCode("560064");
         addContactPayload.setCountry("India");
         return addContactPayload;
+    }
+
+    public UpdateEmailAndPhoneNumberPayload createPayloadForUpdateEmailAnd(String email, String phoneNumber){
+        UpdateEmailAndPhoneNumberPayload updateEmailAndPhoneNumberPayload = new UpdateEmailAndPhoneNumberPayload();
+        updateEmailAndPhoneNumberPayload.setEmail(email);
+        updateEmailAndPhoneNumberPayload.setPhone(phoneNumber);
+        return updateEmailAndPhoneNumberPayload;
     }
 }
