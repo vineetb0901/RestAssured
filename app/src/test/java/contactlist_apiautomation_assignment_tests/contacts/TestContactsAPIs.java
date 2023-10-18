@@ -25,7 +25,7 @@ public class TestContactsAPIs {
     private String token;
     private String id;
 
-    @BeforeClass
+    @BeforeClass(groups = "run-all")
     public void setUp() throws IOException {
         testDataBuilderContact = new TestDataBuilderForContact();
         firstName = Utils.generateFirstName();
@@ -38,8 +38,8 @@ public class TestContactsAPIs {
 
         token = TestUserAPIs.token;
     }
-
-    @Test(priority = 1)
+//TCA01
+    @Test(priority = 1, groups = "run-all")
     public void shouldTestAddContact() throws IOException {
         //Arrange
         String resource = APIResources.AddContactAPI.getResource();
@@ -56,7 +56,8 @@ public class TestContactsAPIs {
         Assert.assertEquals(addContactResponse.getFirstName(), firstName);
     }
 
-    @Test(priority = 2)
+//TCA02
+    @Test(priority = 2, groups = "run-all")
     public void shouldTestGetContactList() throws IOException {
         //Arrange
         String resources = APIResources.GetContactList.getResource();
@@ -72,7 +73,8 @@ public class TestContactsAPIs {
         Assert.assertEquals(firstNameInResponse, firstName);
     }
 
-    @Test(priority = 3)
+//TCA03
+    @Test(priority = 3, groups = "run-all")
     public void shouldTestGetContact() throws IOException {
         //Arrange
         String resource = APIResources.GetContact.getResource();
@@ -86,7 +88,9 @@ public class TestContactsAPIs {
         //Assert
         Assert.assertEquals(addContactResponse.get_id(), id);
     }
-    @Test(priority = 4)
+
+//TCA04
+    @Test(priority = 4, groups = "run-all")
     public void shouldTestUpdateContact() throws IOException {
         //Arrange
         String resource = APIResources.UpdateContact.getResource();
@@ -107,7 +111,9 @@ public class TestContactsAPIs {
         //Assert
         Assert.assertEquals(updatedContactPayloadFirstName,updatedContactResponseFirstName);
     }
-    @Test(priority = 5)
+
+//TCA05
+    @Test(priority = 5, groups = "run-all")
     public void shouldTestUpdatePhoneNumberAndEmail() throws IOException {
         //Arrange
         String resource = APIResources.UpdateContact.getResource();
@@ -126,7 +132,9 @@ public class TestContactsAPIs {
         //Assert
         Assert.assertEquals(requestedEmail,emailInResponse);
     }
-    @Test(priority = 6)
+
+//TCA06
+    @Test(priority = 6, groups = "run-all")
     public void shouldTestDeleteContact() throws IOException {
         //Arrange
         String resource = APIResources.DeleteContact.getResource();

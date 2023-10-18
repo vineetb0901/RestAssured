@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="AllTestsSuite" verbose="1">
+    <test name="All">
+        <groups>
+            <run>
+                <include name="run-all"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="contactlist_apiautomation_assignment_tests.users.TestUserAPIs"/>
+            <class name="contactlist_apiautomation_assignment_tests.contacts.TestContactsAPIs"/>
+
+        </classes>
+    </test>
+</suite>

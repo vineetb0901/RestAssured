@@ -28,8 +28,11 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.22'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
 
-    // https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
+    // Allure TestNG
     implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.24.0'
+
+    // Allure Rest Assured
+    testImplementation 'io.qameta.allure:allure-rest-assured:2.24.0'
 
     // https://mvnrepository.com/artifact/com.github.javafaker/javafaker
     implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
@@ -63,7 +66,9 @@ application {
     mainClass = 'contactlist_apiautomation_assignment.App'
 }
 
-tasks.named('test') {
+test {
     // Use TestNG for unit tests.
-    useTestNG()
+    useTestNG(){
+        suites 'src/test/resources/testng.xml'
+    }
 }

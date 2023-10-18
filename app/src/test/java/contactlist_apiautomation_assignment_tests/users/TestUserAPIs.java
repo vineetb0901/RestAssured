@@ -22,7 +22,7 @@ public class TestUserAPIs {
     String password;
     String firstName;
     String lastName;
-    @BeforeClass
+    @BeforeClass(groups = "run-all")
     public TestUserAPIs setUp(){
         testDataBuilderUser = new TestDataBuilderForUser();
         firstName = Utils.generateFirstName();
@@ -32,8 +32,8 @@ public class TestUserAPIs {
         return this;
     }
 
-
-    @Test(priority = 1)
+//TUA01
+    @Test(priority = 1, groups = "run-all")
     public void shouldTestCreateUser() throws IOException {
         //Arrange
         String resource = APIResources.CreateUserAPI.getResource();
@@ -49,7 +49,8 @@ public class TestUserAPIs {
         Assert.assertEquals(createUserResponse.getUser().getFirstName(), firstName);
     }
 
-    @Test(priority = 2)
+//TUA02
+    @Test(priority = 2, groups = "run-all")
     public void shouldTestGetUserProfile() throws IOException {
         //Arrange
         String resource = APIResources.GetUserProfileAPI.getResource();
@@ -64,7 +65,8 @@ public class TestUserAPIs {
         Assert.assertEquals(user.getEmail(), email);
     }
 
-    @Test(priority = 3)
+//TUA03
+    @Test(priority = 3, groups = "run-all")
     public void shouldTestUpdateUser() throws IOException {
         //Arrange
         String resource = APIResources.UpdateUserAPI.getResource();
@@ -80,8 +82,8 @@ public class TestUserAPIs {
         //Assert
         Assert.assertEquals(updatedUser.getFirstName(), updatedFirstName);
     }
-
-    @Test(priority = 4)
+//TUA04
+    @Test(priority = 4, groups = "run-all")
     public void shouldTestLogInUser() throws IOException {
         //Arrange
         String resource = APIResources.LogInUserAPI.getResource();
@@ -96,7 +98,9 @@ public class TestUserAPIs {
         //Assert
         Assert.assertEquals(createUserResponse.getUser().getEmail(),email);
     }
-    @Test(priority = 5)
+
+//TUA05
+    @Test(priority = 5, groups = "run-all")
     public void shouldTestLogOutUser() throws IOException {
         //Arrange
         String resource = APIResources.LogOutUserAPI.getResource();
@@ -108,7 +112,9 @@ public class TestUserAPIs {
         //Assert
         Assert.assertEquals(response.statusCode(),200);
     }
-    @Test(priority = 6)
+
+//TUA06
+    @Test(priority = 6, groups = "run-all")
     public void shouldTestDeleteUser() throws IOException {
         //Arrange
         this.shouldTestLogInUser();
