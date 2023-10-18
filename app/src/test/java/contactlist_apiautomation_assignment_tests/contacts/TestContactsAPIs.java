@@ -123,4 +123,16 @@ public class TestContactsAPIs {
         //Assert
         Assert.assertEquals(email1,email2);
     }
+    @Test(priority = 6)
+    public void shouldTestDeleteContact() throws IOException {
+        //Arrange
+        String resource = APIResources.DeleteContact.getResource();
+        //Act
+        String deleteContactResponse = given().spec(Utils.requestSpecificationBuilder())
+                .header("Authorization", "Bearer " + token)
+                .when().delete(resource + _id)
+                .then().extract().response().asString();
+        //Assert
+        Assert.assertEquals(deleteContactResponse,"Contact deleted");
+    }
 }
