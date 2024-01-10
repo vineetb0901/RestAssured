@@ -19,7 +19,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -30,6 +30,4 @@ jobs:
         distribution: 'temurin'
     - name: Build with Gradle
       run: gradle clean test
-    - name: send email
-      run : uuencode app/build/reports/tests/test/index.html index.html | mail -s "Allure Report" vineetbhat00@gmail.com
 
