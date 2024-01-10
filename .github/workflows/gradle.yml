@@ -31,5 +31,5 @@ jobs:
     - name: Build with Gradle
       run: gradle clean test
     - name: send email
-      run : uuencode /path/to/allure-report.zip allure-report.zip | mail -s "Allure Report" vineetbhat00@gmail.com
+      run : uuencode app/build/reports/tests/test/index.html index.html | mail -s "Allure Report" vineetbhat00@gmail.com
 
